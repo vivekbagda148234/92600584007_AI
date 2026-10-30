@@ -1,0 +1,23 @@
+# Solve tower of Hanoi
+# Enrollment Number : 92600584007
+# Name : Vivek Bagda
+
+
+def tower_of_hanoi(n, source, helper, destination):
+
+    if n == 1:
+        print("Move disk 1 from", source, "to", destination)
+        return
+
+    tower_of_hanoi(n - 1, source, destination, helper)
+
+    print("Move disk", n, "from", source, "to", destination)
+
+    tower_of_hanoi(n - 1, helper, source, destination)
+
+
+n = int(input("Enter number of disks: "))
+
+tower_of_hanoi(n, "A", "B", "C")
+
+print("Total Moves:", (2 ** n) - 1)
